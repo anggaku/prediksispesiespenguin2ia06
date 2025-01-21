@@ -33,7 +33,7 @@ st.write(data_baru)
 # Tombol Prediksi
 if st.button("Prediksi"):
     # Muat label encoder untuk kolom kategorikal
-    label_encoders = load('model/label_encoder.pkl')  # Pastikan file ini tersedia
+    label_encoders = load('../model/label_encoder.pkl')  # Pastikan file ini tersedia
 
     # Encode kolom kategorikal pada data baru
     for column in ['island', 'sex']:
@@ -41,7 +41,7 @@ if st.button("Prediksi"):
             data_baru[column] = label_encoders[column].transform(data_baru[column])
 
     # Muat model yang telah disimpan
-    model_rf = load('model/rf_model.joblib')
+    model_rf = load('../model/rf_model.joblib')
 
     # Lakukan prediksi dengan data baru
     y_pred_baru = model_rf.predict(data_baru)
